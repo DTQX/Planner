@@ -1,16 +1,27 @@
 import { Switch, Route } from '@modern-js/runtime/router';
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import './App.less';
+// import './App.css';
+import { Layout } from 'antd';
+import HeaderContent from './components/header';
 
-import './App.css';
-
+const { Header, Content } = Layout;
 const App = () => (
-  <Switch>
-    <Route exact={true} path="/test/select">
-      <div className="container">3333</div>
-    </Route>
-    <Route path="*">
-      <div>404</div>
-    </Route>
-  </Switch>
+  <Layout>
+    <Header className="header">
+      <HeaderContent />
+    </Header>
+    <Content>
+      <Switch>
+        <Route exact={true} path="/test/select">
+          <div className="container">3333</div>
+        </Route>
+        <Route path="*">
+          <div>404</div>
+        </Route>
+      </Switch>
+    </Content>
+  </Layout>
 );
 
 export default App;
